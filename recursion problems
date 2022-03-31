@@ -1,0 +1,260 @@
+1.Check Palindrome
+
+Problem Description
+Write a recursive function that checks whether string A is a palindrome or Not.
+Return 1 if the string A is a palindrome, else return 0.
+
+Note: A palindrome is a string that's the same when read forward and backward.
+
+
+
+Problem Constraints
+1 <= A <= 50000
+
+String A consists only of lowercase letters.
+
+
+
+Input Format
+The first and only argument is a string A.
+
+
+
+Output Format
+Return 1 if the string A is a palindrome, else return 0.
+
+
+
+Example Input
+Input 1:
+
+ A = "naman"
+Input 2:
+
+ A = "strings"
+
+
+Example Output
+Output 1:
+
+ 1
+Output 2:
+
+ 0
+
+
+Example Explanation
+Explanation 1:
+
+ "naman" is a palindomic string, so return 1.
+Explanation 2:
+
+ "strings" is not a palindrome, so return 0.
+ 
+ 
+ 
+ import sys
+sys.setrecursionlimit(10**6)
+
+def pali(A, s , e):
+    if (s == e):
+        return 1
+    if (A[s] != A[e]) :
+        return 0
+    if (s < e + 1) :
+        return pali(A, s + 1, e - 1)
+    return 1
+class Solution:
+    # @param A : string
+    # @return an integer
+    def solve(self, A):
+        return pali(A, 0, len(A) - 1)
+        
+2.Print reverse string
+
+Problem Description
+
+Write a recursive function that, given a string S, prints the characters of S in reverse order.
+
+
+
+Problem Constraints
+
+1 <= |s| <= 1000
+
+
+
+Input Format
+
+First line of input contains a string S.
+
+
+
+Output Format
+
+Print the character of the string S in reverse order.
+
+
+
+Example Input
+
+Input 1:
+
+ scaleracademy
+Input 2:
+
+ cool
+
+
+Example Output
+
+Output 1:
+
+ ymedacarelacs
+Output 2:
+
+ looc
+
+
+Example Explanation
+
+Explanation 1:
+
+ Print the reverse of the string in a single line.
+ 
+ 
+ 
+ import sys
+sys.setrecursionlimit(10**6)
+
+def printreverse(S): 
+    if len(S) == 0: 
+        return
+      
+    temp = S[0] 
+    printreverse(S[1:]) 
+    print(temp, end='') 
+
+def main():
+    s = input()
+    printreverse(s)
+    return 0
+    
+if __name__ == '__main__':
+    main()
+    
+    
+    
+3. Sum of Digits!
+
+Problem Description
+Given a number A, we need to find the sum of its digits using recursion.
+
+
+
+Problem Constraints
+1 <= A <= 109
+
+
+
+Input Format
+The first and only argument is an integer A.
+
+
+
+Output Format
+Return an integer denoting the sum of digits of the number A.
+
+
+
+Example Input
+Input 1:
+
+ A = 46
+Input 2:
+
+ A = 11
+
+
+Example Output
+Output 1:
+
+ 10
+Output 2:
+
+ 2
+
+
+Example Explanation
+Explanation 1:
+
+ Sum of digits of 46 = 4 + 6 = 10
+Explanation 2:
+
+ Sum of digits of 11 = 1 + 1 = 2
+ 
+ 
+ 
+def sod(n):
+    if n==0:
+        return 0
+    else:
+        return n%10 + sod(n//10)
+class Solution:
+    # @param A : integer
+    # @return an integer
+    def solve(self, A):
+        return sod(A)
+        
+        
+        
+Is magic?
+
+Problem Description
+Given a number A, check if it is a magic number or not.
+
+A number is said to be a magic number if the sum of its digits is calculated till a single digit recursively by adding the sum of the digits after every addition. If the single digit comes out to be 1, then the number is a magic number.
+
+
+
+Problem Constraints
+1 <= A <= 109
+
+
+
+Input Format
+The first and only argument is an integer A.
+
+
+
+Output Format
+Return an 1 if the given number is magic else return 0.
+
+
+
+Example Input
+Input 1:
+
+ A = 83557
+Input 2:
+
+ A = 1291
+
+
+Example Output
+Output 1:
+
+ 1
+Output 2:
+
+ 0
+ 
+ 
+ class Solution:
+    # @param A : integer
+    # @return an integer
+    def solve(self, A):
+        if (A % 9 == 1):
+            return 1
+        else:
+            return 0
